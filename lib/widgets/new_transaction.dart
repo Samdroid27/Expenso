@@ -54,9 +54,10 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
+     final isLandscape= MediaQuery.of(context).orientation == Orientation.landscape;
     return Card(
                   child: Container(
-                    padding: EdgeInsets.all(10) ,
+                    padding:isLandscape? EdgeInsets.all(5):EdgeInsets.all(10) ,
                     child:Column(
                       children: <Widget>[
                         TextField(
@@ -75,7 +76,7 @@ class _NewTransactionState extends State<NewTransaction> {
                            onSubmitted: (_) => _submitData()         ,
                            ),
                            Container(
-                            height: 70,
+                           height:isLandscape? 40 :90,
                             child :Row(children: <Widget>[
                             Expanded(
                                child: Text(_selectedDate ==null ?'No Date Chosen' : DateFormat.yMMMd().format(_selectedDate),
