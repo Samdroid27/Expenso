@@ -1,6 +1,10 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import './adaptive_flat_button.dart';
 
 class NewTransaction extends StatefulWidget {
 
@@ -73,7 +77,7 @@ class _NewTransactionState extends State<NewTransaction> {
                           ),
                           controller: _amtCtrl,
                            keyboardType: TextInputType.number,
-                           onSubmitted: (_) => _submitData()         ,
+                           onSubmitted: (_) => _submitData() ,
                            ),
                            Container(
                            height:isLandscape? 40 :90,
@@ -85,14 +89,7 @@ class _NewTransactionState extends State<NewTransaction> {
                               ),
                               ),
                             ),
-                            FlatButton(
-                              child: Text('Choose Date',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.purple
-                              ),),
-                              onPressed: _presentDatePicker,
-                            )
+                            AdaptiveFlatButton('Choose Date', _presentDatePicker)
                             ],)
                            ),
                            RaisedButton(
